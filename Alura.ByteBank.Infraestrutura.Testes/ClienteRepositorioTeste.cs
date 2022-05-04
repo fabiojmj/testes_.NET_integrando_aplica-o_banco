@@ -2,15 +2,11 @@
 using Alura.ByteBank.Dominio.Entidades;
 using Alura.ByteBank.Dominio.Interfaces.Repositorios;
 using Microsoft.Extensions.DependencyInjection;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xunit;
 
 namespace Alura.ByteBank.Infraestrutura.Testes
-{    
+{
     public class ClienteRepositorioTeste
     {
         private readonly IClienteRepositorio _clienteRepositorio;
