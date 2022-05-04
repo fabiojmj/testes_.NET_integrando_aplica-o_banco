@@ -34,5 +34,7 @@ namespace Alura.ByteBank.Infraestrutura.Testes
             //assert
             Assert.NotNull(listaAgencia);
         }
+
+        
     }
 }

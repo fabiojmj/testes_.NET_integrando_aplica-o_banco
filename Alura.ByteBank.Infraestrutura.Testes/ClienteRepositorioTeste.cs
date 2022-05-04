@@ -32,5 +32,27 @@ namespace Alura.ByteBank.Infraestrutura.Testes
             //assert
             Assert.NotNull(lista);
         }
+
+        [Fact]
+        public void TestaObterClientePorId()
+        {
+            //arrange
+            //act
+            var cliente = _clienteRepositorio.ObterPorId(1);
+            //assert
+            Assert.NotNull(cliente);
+        }
+
+        [Theory]
+        [InlineData(1)]
+        [InlineData(2)]
+        public void TestaObterClientePorVariosId(int id)
+        {
+            //arrange
+            //act
+            var cliente = _clienteRepositorio.ObterPorId(id);
+            //assert
+            Assert.NotNull(cliente);
+        }
     }
 }
