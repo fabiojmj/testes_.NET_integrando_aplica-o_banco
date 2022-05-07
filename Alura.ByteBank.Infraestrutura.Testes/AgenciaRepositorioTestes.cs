@@ -2,6 +2,7 @@
 using Alura.ByteBank.Dominio.Entidades;
 using Alura.ByteBank.Dominio.Interfaces.Repositorios;
 using Microsoft.Extensions.DependencyInjection;
+using System;
 using System.Collections.Generic;
 using Xunit;
 
@@ -51,6 +52,27 @@ namespace Alura.ByteBank.Infraestrutura.Testes
             var agencia = _agendaRepositorio.ObterPorId(id);
             //assert
             Assert.NotNull(agencia);
+        }
+
+        [Fact]
+        public void TestaRemoverInformacaoDeterminadaAgencia()
+        {
+            //arrange
+            //act
+            var removido = _agendaRepositorio.Excluir(3);
+
+            //Assert
+            Assert.True(removido);
+        }
+
+        [Fact]
+        public void TestaExcecaoConsultaPorAgenciaPorId()
+        {
+            //arrange
+            //act
+            //assert
+            Assert.Throws<Exception>(
+                () => _agendaRepositorio.ObterPorId(33));
         }
     }
 }
