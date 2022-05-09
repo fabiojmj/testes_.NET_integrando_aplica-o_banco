@@ -7,20 +7,25 @@ using Moq;
 using System;
 using System.Collections.Generic;
 using Xunit;
+using Xunit.Abstractions;
 
 namespace Alura.ByteBank.Infraestrutura.Testes
 {
     public class AgenciaRepositorioTestes
     {
         private readonly IAgenciaRepositorio _agendaRepositorio;
+        public ITestOutputHelper saidaConsole { get; set; }
 
-        public AgenciaRepositorioTestes()
+        public AgenciaRepositorioTestes(ITestOutputHelper _saidaConsole)
         {
             var servico = new ServiceCollection();
             servico.AddTransient<IAgenciaRepositorio, AgenciaRepositorio>();
 
             var provedor = servico.BuildServiceProvider();
             _agendaRepositorio = provedor.GetService<IAgenciaRepositorio>();
+
+            saidaConsole = _saidaConsole;
+            saidaConsole.WriteLine("Construtor executado com sucesso");
         }
 
         [Fact]
@@ -61,7 +66,7 @@ namespace Alura.ByteBank.Infraestrutura.Testes
         {
             //arrange
             //act
-            var removido = _agendaRepositorio.Excluir(3);
+            var removido = _agendaRepositorio.Excluir(2);
 
             //Assert
             Assert.True(removido);

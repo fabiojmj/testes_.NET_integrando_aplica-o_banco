@@ -36,7 +36,7 @@ namespace Alura.ByteBank.Dados.Migrations
                 column: "AgenciaId",
                 principalTable: "agencia",
                 principalColumn: "Id",
-                onDelete: ReferentialAction.Restrict);
+                onDelete: ReferentialAction.Cascade);
 
             migrationBuilder.AddForeignKey(
                 name: "FK_conta_corrente_cliente_ClienteId",

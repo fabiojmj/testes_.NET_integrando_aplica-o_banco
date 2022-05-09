@@ -63,7 +63,7 @@ namespace Alura.ByteBank.Dados.Repositorio
                 _contexto.SaveChanges();
                 return true;
             }
-            catch{
+            catch(Exception ex){
                 return false;
             }
         }
